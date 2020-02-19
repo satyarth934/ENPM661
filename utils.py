@@ -67,3 +67,25 @@ def writeNodeStates(node_list, node_state_filename):
 		node_states.append(node.getFlatMatrix())
 
 	np.savetxt(node_state_filename, np.array(node_states), fmt="%d")
+
+
+##
+## Convert the input commandline grid values to a 2D list.
+##
+## :param      grid_values:  The grid values
+## :type       grid_values:  List
+##
+## :returns:   The input grid.
+## :rtype:     2D List
+##
+def getInputGrid(grid_values):
+	num_rows = 3
+	num_cols = 3
+
+	grid = [[0] * num_cols for _ in range(num_rows)]
+
+	for r in range(0, num_rows):
+		for c in range(0, num_cols):
+			grid[r][c] = int(grid_values[c * num_rows + r])
+
+	return grid

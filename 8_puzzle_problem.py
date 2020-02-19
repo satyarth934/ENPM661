@@ -77,7 +77,16 @@ def solve8PuzzleProblem(input_data_matrix):
 ## The main function
 ##
 def main():
-	input_data_matrix = [[1, 8, 2], [0, 4, 3], [7, 6, 5]]
+	# input_data_matrix = [[1, 8, 2], [0, 4, 3], [7, 6, 5]]
+	# sample command: python3 8_puzzle_problem.py 1 0 7 8 4 6 2 3 5
+
+	if len(sys.argv) != 10:
+		print("Incorrect arguments!! Please try again.")
+		sys.exit(0)
+
+	input_data_matrix = utils.getInputGrid(sys.argv[1:])
+	print(input_data_matrix)
+
 	solution_path = solve8PuzzleProblem(input_data_matrix)
 	np.savetxt("./nodePath.txt", np.array(solution_path), fmt="%d")
 
