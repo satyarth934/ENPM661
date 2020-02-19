@@ -85,8 +85,12 @@ def main():
 		sys.exit(0)
 
 	input_data_matrix = utils.getInputGrid(sys.argv[1:])
-	print(input_data_matrix)
+	print("input_data_matrix:")
+	for row in input_data_matrix:
+		print(row)
+	print()
 
+	print("Solution:")
 	solution_path = solve8PuzzleProblem(input_data_matrix)
 	np.savetxt("./nodePath.txt", np.array(solution_path), fmt="%d")
 
