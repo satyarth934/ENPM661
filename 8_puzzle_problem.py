@@ -6,6 +6,16 @@ import node
 import actions
 import utils
 
+
+##
+## This function takes in the input configuration and returns a solution path
+##
+## :param      input_data_matrix:  The input grid configuration
+## :type       input_data_matrix:  2D list 
+##
+## :returns:   A step by step solution configurations from start to goal state
+## :rtype:     2D list
+##
 def solve8PuzzleProblem(input_data_matrix):
 	input_data = node.Node(data_matrix=input_data_matrix, 
 						current_idx=0, 
@@ -63,12 +73,12 @@ def solve8PuzzleProblem(input_data_matrix):
 	print("I am really sorry but I could not find a solution. This is weird because as per my logic the solution exists.")
 	return None
 
-
+##
+## The main function
+##
 def main():
-	# input_data_matrix = [[1, 2, 3], [4, 5, 6], [7, 0, 8]]
 	input_data_matrix = [[1, 8, 2], [0, 4, 3], [7, 6, 5]]
 	solution_path = solve8PuzzleProblem(input_data_matrix)
-	# print("--------- PRINTING SOLUTION PATH ---------\n", solution_path)
 	np.savetxt("./nodePath.txt", np.array(solution_path), fmt="%d")
 
 

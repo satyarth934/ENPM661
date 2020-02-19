@@ -1,5 +1,14 @@
 class Node(object):
-	"""docstring for Node"""
+	"""
+	A Node is a state of the input matrix. 
+	Every state is defined by three things:
+		1. the configuration of the matrix 
+		2. the current index of the state
+		3. the index of the parent state
+
+	The blank tile in the grid is denoted by the number zero (0).
+	"""
+
 	def __init__(self, 
 				 data_matrix, 
 				 current_idx, 
@@ -10,6 +19,12 @@ class Node(object):
 		self.parent_idx = parent_idx
 
 
+	##
+	## Gets the blank tile location.
+	##
+	## :returns:   The blank tile location as row, col coordinates
+	## :rtype:     List of 2 values
+	##
 	def getBlankTileLocation(self):
 		idx = [-1,-1]
 		for i, row in enumerate(self.data_matrix):
@@ -20,6 +35,12 @@ class Node(object):
 		return idx
 
 
+	##
+	## Determines if the given configuration is solvable.
+	##
+	## :returns:   True if solvable, False otherwise.
+	## :rtype:     boolean
+	##
 	def isSolvable(self):
 		inversion = 0
 
@@ -38,11 +59,20 @@ class Node(object):
 		return False
 
 
+	##
+	## Determines if the current configuration is the same as the goal state.
+	##
+	## :returns:   True if current configuration matches the goal state, False otherwise.
+	## :rtype:     boolean
+	##
 	def reachedGoalState(self):
 		goal_state_matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 0]]
 		return (self.data_matrix == goal_state_matrix)
 		
 
+	##
+	## Prints all the information regarding the current configuration.
+	##
 	def printNode(self):
 		print("blank_tile_location:\n\t", self.blank_tile_location)
 		print("current_idx:\n\t", self.current_idx)
@@ -52,6 +82,12 @@ class Node(object):
 			print("\t",row)
 
 
+	##
+	## Gets the column-wise flat matrix configuration.
+	##
+	## :returns:   The flattened matrix.
+	## :rtype:     List
+	##
 	def getFlatMatrix(self):
 		ret_list = []
 		for c in range(0, len(self.data_matrix[0])):

@@ -1,6 +1,14 @@
 import copy
 
-# returns if the process was successful or not
+##
+## Moves the blank tile towards the left
+##
+## :param      data:  The complete state of a configuration
+## :type       data:  Node
+##
+## :returns:   The complete state of the modified configuration or None if the action is not possible
+## :rtype:     Node
+##
 def actionMoveLeft(data):
 	ret_val = copy.deepcopy(data)
 
@@ -13,7 +21,15 @@ def actionMoveLeft(data):
 		return ret_val
 
 
-# returns if the process was successful or not
+##
+## Moves the blank tile towards the right
+##
+## :param      data:  The complete state of a configuration
+## :type       data:  Node
+##
+## :returns:   The complete state of the modified configuration or None if the action is not possible
+## :rtype:     Node
+##
 def actionMoveRight(data):
 	ret_val = copy.deepcopy(data)
 
@@ -26,7 +42,15 @@ def actionMoveRight(data):
 		return ret_val
 
 
-# returns if the process was successful or not
+##
+## Moves the blank tile upward
+##
+## :param      data:  The complete state of a configuration
+## :type       data:  Node
+##
+## :returns:   The complete state of the modified configuration or None if the action is not possible
+## :rtype:     Node
+##
 def actionMoveUp(data):
 	ret_val = copy.deepcopy(data)
 
@@ -39,7 +63,15 @@ def actionMoveUp(data):
 		return ret_val
 
 
-# returns if the process was successful or not
+##
+## Moves the blank tile downward
+##
+## :param      data:  The complete state of a configuration
+## :type       data:  Node
+##
+## :returns:   The complete state of the modified configuration or None if the action is not possible
+## :rtype:     Node
+##
 def actionMoveDown(data):
 	ret_val = copy.deepcopy(data)
 
