@@ -22,7 +22,8 @@ def solve8PuzzleProblem(input_data_matrix):
 						parent_idx=-1)
 
 	if not input_data.isSolvable():
-		print("Sorry mate! No can do!!")
+		print("Sorry but this configuration is not solvable! Try some other configuration.")
+		sys.exit(0)
 	
 	is_visited = []
 
